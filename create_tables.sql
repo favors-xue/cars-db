@@ -71,3 +71,23 @@ ALTER TABLE public.t_account_sec
     );
     ALTER TABLE public.t_operator_info
       OWNER TO jetty;
+
+
+      -- Table: public.t_appoint_info
+
+      -- DROP TABLE public.t_appoint_info;
+
+      CREATE TABLE public.t_appoint_info
+      (
+        id bigint NOT NULL DEFAULT nextval('t_appoint_info_id_seq'::regclass),
+        "ownerId" bigint,
+        "operatorId" bigint,
+        "orderTime" timestamp without time zone,
+        status integer,
+        CONSTRAINT pk_appoint_index PRIMARY KEY (id)
+      )
+      WITH (
+        OIDS=FALSE
+      );
+      ALTER TABLE public.t_appoint_info
+        OWNER TO jetty;
